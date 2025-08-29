@@ -1,0 +1,16 @@
+app/
+├── outputs/
+│   └── estrutura.txt
+└── src/
+    └── main/
+        ├── AndroidManifest.xml
+        ├── java/
+        │   └── com/
+        │       └── example/
+        │           └── myapp/
+        │               ├── activity/
+        │               │   └── MainActivity.kt
+        │               └── model/
+        └── res/
+            └── layout/
+                └── activity_main.xml

@@ -1,0 +1,42 @@
+MainActivity.kt
+package com.example.myapp.activity
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myapp.R
+import java.io.File
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Pasta de teste no storage interno do app
+        val pastaSaida = File(filesDir, "outputs")
+        if (!pastaSaida.exists()) pastaSaida.mkdirs()
+
+        // Arquivos de teste (cria temporários)
+        val arquivo1 = File(pastaSaida, "teste1.txt")
+        arquivo1.writeText("Conteúdo do arquivo 1")
+
+        val arquivo2 = File(pastaSaida, "teste2.txt")
+        arquivo2.writeText("Conteúdo do arquivo 2")
+
+        val listaArquivos = listOf(arquivo1, arquivo2)
+
+        // Gerar arquivo consolidado
+        val arquivoFinal = File(pastaSaida, "conteudo_testes.txt")
+        val sb = StringBuilder()
+        for (file in listaArquivos) {
+            sb.appendLine(file.name)
+            sb.appendLine(file.readText())
+            sb.appendLine("----")
+        }
+        arquivoFinal.writeText(sb.toString())
+
+        println("Arquivo gerado em: ${arquivoFinal.absolutePath}")
+    }
+}
+
+----
