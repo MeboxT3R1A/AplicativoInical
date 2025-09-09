@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapp.activity.BotoesVelozes
 import com.example.myapp.activity.JogoDaVelhaActivity
 
 class MainActivity : AppCompatActivity() {
@@ -30,8 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         botaoBotoesVelozes.setOnClickListener {
             toast?.cancel()  // cancela Toast anterior
-            toast = Toast.makeText(this, "Jogo Indisponivel", Toast.LENGTH_SHORT)
-            toast?.show()
+            val intent = Intent(
+                this,
+                BotoesVelozes::class.java)
+            startActivity(intent)
         }
 
         botaoJogoDaMemoria.setOnClickListener {

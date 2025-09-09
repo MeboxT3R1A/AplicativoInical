@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp.R
 
-class JogoDaVelhaActivity : AppCompatActivity() {
+class JogoDaVelhaActivity : AppCompatActivity(R.layout.activity_jogo_da_velha) {
     private var rodada = 0
     private lateinit var botoes: List<List<Button>>
     private lateinit var resetar: Button
@@ -61,7 +61,6 @@ class JogoDaVelhaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jogo_da_velha)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Jogo da Velha"
